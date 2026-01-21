@@ -1,0 +1,309 @@
+\hypertarget{anotherCipher_8h}{}\doxysection{Файл another\+Cipher.\+h}
+\label{anotherCipher_8h}\index{anotherCipher.h@{anotherCipher.h}}
+
+
+Заголовочный файл для шифра перестановки по столбцам  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Граф включаемых заголовочных файлов для another\+Cipher.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{anotherCipher_8h__incl}
+\end{center}
+\end{figure}
+Граф файлов, в которые включается этот файл\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{anotherCipher_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8h_a6292b23bfd8ebd073fdf87a34d16fccc}{encrypt}} (const std\+::string \&plaintext, int columns)
+\begin{DoxyCompactList}\small\item\em Шифрует текст методом перестановки по столбцам \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8h_a0ab0753064bd76c0dec16344659432ba}{decrypt}} (const std\+::string \&ciphertext, int columns)
+\begin{DoxyCompactList}\small\item\em Дешифрует текст, зашифрованный методом перестановки по столбцам \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{anotherCipher_8h_a35e89cf9c5a495518b3ecb0ae5d4d801}{get\+Valid\+Key}} (int columns)
+\begin{DoxyCompactList}\small\item\em Валидирует ключ (количество столбцов) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8h_aba2000de0659600e5553ee98080a34bd}{get\+Valid\+Open\+Text}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Валидирует открытый текст \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8h_abc72ec69fb24c1e2b0b212b050d98848}{get\+Valid\+Cipher\+Text}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Валидирует зашифрованный текст \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл для шифра перестановки по столбцам 
+
+Реализация шифра перестановки по столбцам -\/ симметричного блочного шифра, использующего табличную перестановку символов.\hypertarget{anotherCipher_8h_algorithm_sec}{}\doxysubsection{Алгоритм шифрования}\label{anotherCipher_8h_algorithm_sec}
+Алгоритм работает по следующей схеме\+:
+\begin{DoxyEnumerate}
+\item Текст записывается в таблицу построчно с заданным количеством столбцов
+\item Пустые ячейки заполняются пробелами
+\item Шифротекст формируется чтением таблицы снизу вверх по столбцам
+\end{DoxyEnumerate}\hypertarget{anotherCipher_8h_decrypt_sec}{}\doxysubsection{Алгоритм дешифрования}\label{anotherCipher_8h_decrypt_sec}
+Для дешифрования используется обратный процесс\+:
+\begin{DoxyEnumerate}
+\item Шифротекст записывается в таблицу снизу вверх по столбцам
+\item Оригинальный текст читается построчно
+\end{DoxyEnumerate}
+
+\begin{DoxyAuthor}{Автор}
+Barabanov\+Ruslan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Дата}
+20.\+12.\+25 
+\end{DoxyDate}
+\begin{DoxyVersion}{Версия}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{anotherCipher_8h_a0ab0753064bd76c0dec16344659432ba}\label{anotherCipher_8h_a0ab0753064bd76c0dec16344659432ba}} 
+\index{anotherCipher.h@{anotherCipher.h}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!anotherCipher.h@{anotherCipher.h}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily std\+::string decrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ciphertext,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Дешифрует текст, зашифрованный методом перестановки по столбцам 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ciphertext} & Зашифрованный текст \\
+\hline
+{\em columns} & Количество столбцов в таблице перестановки (1-\/100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Расшифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если параметры невалидны или произошла ошибка дешифрования\\
+\hline
+\end{DoxyExceptions}
+Шифротекст записывается в таблицу снизу вверх по столбцам, затем читается построчно для восстановления исходного текста.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ciphertext} & Зашифрованный текст \\
+\hline
+{\em columns} & Количество столбцов в таблице перестановки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Расшифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если параметры невалидны или произошла ошибка дешифрования\\
+\hline
+\end{DoxyExceptions}
+Алгоритм дешифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация количества столбцов и зашифрованного текста
+\item Расчет количества строк\+: rows = ceil(длина\+\_\+текста / columns)
+\item Проверка корректности длины текста (rows×columns == длина\+\_\+текста)
+\item Создание таблицы rows×columns, заполненной пробелами
+\item Запись шифротекста в таблицу снизу вверх по столбцам
+\item Чтение таблицы построчно для восстановления исходного текста
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Требование rows×columns == длина\+\_\+текста необходимо потому, что шифротекст должен полностью заполнять таблицу без лишних символов. 
+\end{DoxyNote}
+\mbox{\Hypertarget{anotherCipher_8h_a6292b23bfd8ebd073fdf87a34d16fccc}\label{anotherCipher_8h_a6292b23bfd8ebd073fdf87a34d16fccc}} 
+\index{anotherCipher.h@{anotherCipher.h}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!anotherCipher.h@{anotherCipher.h}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily std\+::string encrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plaintext,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Шифрует текст методом перестановки по столбцам 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em plaintext} & Открытый текст для шифрования \\
+\hline
+{\em columns} & Количество столбцов в таблице перестановки (1-\/100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если параметры невалидны или произошла ошибка шифрования\\
+\hline
+\end{DoxyExceptions}
+Текст записывается в таблицу построчно, затем читается снизу вверх по столбцам. Пустые ячейки заполняются пробелами.
+
+\begin{DoxyNote}{Заметки}
+Пример работы алгоритма\+: Текст\+: \char`\"{}\+HELLO\char`\"{}, столбцов\+: 2 Таблица\+: H E L L O Чтение снизу вверх\+: O L L E H -\/$>$ \char`\"{}\+OLLEH\char`\"{}
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em plaintext} & Открытый текст для шифрования \\
+\hline
+{\em columns} & Количество столбцов в таблице перестановки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если параметры невалидны или произошла ошибка шифрования\\
+\hline
+\end{DoxyExceptions}
+Алгоритм шифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация количества столбцов и открытого текста
+\item Расчет количества строк\+: rows = ceil(длина\+\_\+текста / columns)
+\item Создание таблицы rows×columns, заполненной пробелами
+\item Запись текста в таблицу построчно
+\item Формирование шифротекста чтением таблицы снизу вверх по столбцам
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Пример\+: Текст\+: \char`\"{}\+HELLO WORLD\char`\"{}, столбцов\+: 3 Таблица 4×3 (11 символов, 12 ячеек, последняя пустая)\+: H E L L O ~\newline
+ W O R L D Чтение\+: столбец 2 снизу\+: D R L столбец 1 снизу\+: L O O E столбец 0 снизу\+: W L H Результат\+: \char`\"{}\+DRL LOOE WLH\char`\"{} 
+\end{DoxyNote}
+\mbox{\Hypertarget{anotherCipher_8h_abc72ec69fb24c1e2b0b212b050d98848}\label{anotherCipher_8h_abc72ec69fb24c1e2b0b212b050d98848}} 
+\index{anotherCipher.h@{anotherCipher.h}!getValidCipherText@{getValidCipherText}}
+\index{getValidCipherText@{getValidCipherText}!anotherCipher.h@{anotherCipher.h}}
+\doxysubsubsection{\texorpdfstring{getValidCipherText()}{getValidCipherText()}}
+{\footnotesize\ttfamily std\+::string get\+Valid\+Cipher\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Валидирует зашифрованный текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Зашифрованный текст для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидный зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст пустой или содержит непечатные символы\\
+\hline
+\end{DoxyExceptions}
+Зашифрованный текст должен состоять только из печатных символов. Это необходимо для корректного заполнения таблицы при дешифровании.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Зашифрованный текст для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидный зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст пустой или содержит непечатные символы\\
+\hline
+\end{DoxyExceptions}
+Проверяет, что все символы в зашифрованном тексте являются печатными. Это требование необходимо для корректного заполнения таблицы при дешифровании. \mbox{\Hypertarget{anotherCipher_8h_a35e89cf9c5a495518b3ecb0ae5d4d801}\label{anotherCipher_8h_a35e89cf9c5a495518b3ecb0ae5d4d801}} 
+\index{anotherCipher.h@{anotherCipher.h}!getValidKey@{getValidKey}}
+\index{getValidKey@{getValidKey}!anotherCipher.h@{anotherCipher.h}}
+\doxysubsubsection{\texorpdfstring{getValidKey()}{getValidKey()}}
+{\footnotesize\ttfamily int get\+Valid\+Key (\begin{DoxyParamCaption}\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Валидирует ключ (количество столбцов) 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em columns} & Количество столбцов для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидное количество столбцов 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если columns $<$= 0 или columns $>$ 100\\
+\hline
+\end{DoxyExceptions}
+Допустимый диапазон\+: 1-\/100 столбцов.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em columns} & Количество столбцов для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидное количество столбцов 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если columns $<$= 0 или columns $>$ 100\\
+\hline
+\end{DoxyExceptions}
+Проверяет, что количество столбцов находится в допустимом диапазоне. Ограничение в 100 столбцов установлено для предотвращения создания слишком больших таблиц и возможных проблем с производительностью. \mbox{\Hypertarget{anotherCipher_8h_aba2000de0659600e5553ee98080a34bd}\label{anotherCipher_8h_aba2000de0659600e5553ee98080a34bd}} 
+\index{anotherCipher.h@{anotherCipher.h}!getValidOpenText@{getValidOpenText}}
+\index{getValidOpenText@{getValidOpenText}!anotherCipher.h@{anotherCipher.h}}
+\doxysubsubsection{\texorpdfstring{getValidOpenText()}{getValidOpenText()}}
+{\footnotesize\ttfamily std\+::string get\+Valid\+Open\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Валидирует открытый текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Текст для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидный открытый текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст пустой или не содержит печатных символов\\
+\hline
+\end{DoxyExceptions}
+Текст должен содержать хотя бы один непробельный печатный символ. Пробелы в тексте сохраняются, но в таблице они могут изменить позицию.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Текст для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидный открытый текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст пустой или не содержит печатных символов\\
+\hline
+\end{DoxyExceptions}
+Алгоритм проверки\+:
+\begin{DoxyEnumerate}
+\item Проверка на пустоту текста
+\item Поиск хотя бы одного непробельного печатного символа
+\item Возврат исходного текста (без изменений)
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Функция не удаляет пробелы, так как они являются частью сообщения и влияют на структуру таблицы при шифровании. 
+\end{DoxyNote}

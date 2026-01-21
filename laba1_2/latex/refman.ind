@@ -1,0 +1,45 @@
+\begin{theindex}
+
+  \item {anotherCipher.cpp}, \hyperpage{11}
+    \subitem {decrypt}, \hyperpage{12}
+    \subitem {encrypt}, \hyperpage{13}
+    \subitem {getValidCipherText}, \hyperpage{14}
+    \subitem {getValidKey}, \hyperpage{14}
+    \subitem {getValidOpenText}, \hyperpage{15}
+  \item {anotherCipher.h}, \hyperpage{16}
+    \subitem {decrypt}, \hyperpage{18}
+    \subitem {encrypt}, \hyperpage{19}
+    \subitem {getValidCipherText}, \hyperpage{20}
+    \subitem {getValidKey}, \hyperpage{21}
+    \subitem {getValidOpenText}, \hyperpage{22}
+
+  \indexspace
+
+  \item {cipher\_error}, \hyperpage{7}
+    \subitem {cipher\_error}, \hyperpage{8}
+
+  \indexspace
+
+  \item {decrypt}
+    \subitem {anotherCipher.cpp}, \hyperpage{12}
+    \subitem {anotherCipher.h}, \hyperpage{18}
+
+  \indexspace
+
+  \item {encrypt}
+    \subitem {anotherCipher.cpp}, \hyperpage{13}
+    \subitem {anotherCipher.h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {getValidCipherText}
+    \subitem {anotherCipher.cpp}, \hyperpage{14}
+    \subitem {anotherCipher.h}, \hyperpage{20}
+  \item {getValidKey}
+    \subitem {anotherCipher.cpp}, \hyperpage{14}
+    \subitem {anotherCipher.h}, \hyperpage{21}
+  \item {getValidOpenText}
+    \subitem {anotherCipher.cpp}, \hyperpage{15}
+    \subitem {anotherCipher.h}, \hyperpage{22}
+
+\end{theindex}

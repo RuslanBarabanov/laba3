@@ -1,0 +1,221 @@
+\hypertarget{anotherCipher_8cpp}{}\doxysection{Файл another\+Cipher.\+cpp}
+\label{anotherCipher_8cpp}\index{anotherCipher.cpp@{anotherCipher.cpp}}
+
+
+Реализация шифра перестановки по столбцам  
+
+
+{\ttfamily \#include \char`\"{}another\+Cipher.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+Граф включаемых заголовочных файлов для another\+Cipher.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{anotherCipher_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{anotherCipher_8cpp_a35e89cf9c5a495518b3ecb0ae5d4d801}{get\+Valid\+Key}} (int columns)
+\begin{DoxyCompactList}\small\item\em Валидирует ключ (количество столбцов) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8cpp_aba2000de0659600e5553ee98080a34bd}{get\+Valid\+Open\+Text}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Валидирует открытый текст \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8cpp_abc72ec69fb24c1e2b0b212b050d98848}{get\+Valid\+Cipher\+Text}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Валидирует зашифрованный текст \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8cpp_a6292b23bfd8ebd073fdf87a34d16fccc}{encrypt}} (const std\+::string \&plaintext, int columns)
+\begin{DoxyCompactList}\small\item\em Шифрует текст методом перестановки по столбцам \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{anotherCipher_8cpp_a0ab0753064bd76c0dec16344659432ba}{decrypt}} (const std\+::string \&ciphertext, int columns)
+\begin{DoxyCompactList}\small\item\em Дешифрует текст, зашифрованный методом перестановки по столбцам \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Реализация шифра перестановки по столбцам 
+
+Содержит реализацию функций шифрования, дешифрования и валидации для шифра перестановки по столбцам.
+
+\begin{DoxyAuthor}{Автор}
+Barabanov\+Ruslan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Дата}
+20.\+12.\+25 
+\end{DoxyDate}
+\begin{DoxyVersion}{Версия}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{anotherCipher_8cpp_a0ab0753064bd76c0dec16344659432ba}\label{anotherCipher_8cpp_a0ab0753064bd76c0dec16344659432ba}} 
+\index{anotherCipher.cpp@{anotherCipher.cpp}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!anotherCipher.cpp@{anotherCipher.cpp}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily std\+::string decrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ciphertext,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Дешифрует текст, зашифрованный методом перестановки по столбцам 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ciphertext} & Зашифрованный текст \\
+\hline
+{\em columns} & Количество столбцов в таблице перестановки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Расшифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если параметры невалидны или произошла ошибка дешифрования\\
+\hline
+\end{DoxyExceptions}
+Алгоритм дешифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация количества столбцов и зашифрованного текста
+\item Расчет количества строк\+: rows = ceil(длина\+\_\+текста / columns)
+\item Проверка корректности длины текста (rows×columns == длина\+\_\+текста)
+\item Создание таблицы rows×columns, заполненной пробелами
+\item Запись шифротекста в таблицу снизу вверх по столбцам
+\item Чтение таблицы построчно для восстановления исходного текста
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Требование rows×columns == длина\+\_\+текста необходимо потому, что шифротекст должен полностью заполнять таблицу без лишних символов. 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba1_2_2anotherCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba1\+\_\+2/another\+Cipher.\+h}}.\end{Desc}
+\mbox{\Hypertarget{anotherCipher_8cpp_a6292b23bfd8ebd073fdf87a34d16fccc}\label{anotherCipher_8cpp_a6292b23bfd8ebd073fdf87a34d16fccc}} 
+\index{anotherCipher.cpp@{anotherCipher.cpp}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!anotherCipher.cpp@{anotherCipher.cpp}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily std\+::string encrypt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plaintext,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Шифрует текст методом перестановки по столбцам 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em plaintext} & Открытый текст для шифрования \\
+\hline
+{\em columns} & Количество столбцов в таблице перестановки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если параметры невалидны или произошла ошибка шифрования\\
+\hline
+\end{DoxyExceptions}
+Алгоритм шифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация количества столбцов и открытого текста
+\item Расчет количества строк\+: rows = ceil(длина\+\_\+текста / columns)
+\item Создание таблицы rows×columns, заполненной пробелами
+\item Запись текста в таблицу построчно
+\item Формирование шифротекста чтением таблицы снизу вверх по столбцам
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Пример\+: Текст\+: \char`\"{}\+HELLO WORLD\char`\"{}, столбцов\+: 3 Таблица 4×3 (11 символов, 12 ячеек, последняя пустая)\+: H E L L O ~\newline
+ W O R L D Чтение\+: столбец 2 снизу\+: D R L столбец 1 снизу\+: L O O E столбец 0 снизу\+: W L H Результат\+: \char`\"{}\+DRL LOOE WLH\char`\"{} 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba1_2_2anotherCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba1\+\_\+2/another\+Cipher.\+h}}.\end{Desc}
+\mbox{\Hypertarget{anotherCipher_8cpp_abc72ec69fb24c1e2b0b212b050d98848}\label{anotherCipher_8cpp_abc72ec69fb24c1e2b0b212b050d98848}} 
+\index{anotherCipher.cpp@{anotherCipher.cpp}!getValidCipherText@{getValidCipherText}}
+\index{getValidCipherText@{getValidCipherText}!anotherCipher.cpp@{anotherCipher.cpp}}
+\doxysubsubsection{\texorpdfstring{getValidCipherText()}{getValidCipherText()}}
+{\footnotesize\ttfamily std\+::string get\+Valid\+Cipher\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Валидирует зашифрованный текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Зашифрованный текст для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидный зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст пустой или содержит непечатные символы\\
+\hline
+\end{DoxyExceptions}
+Проверяет, что все символы в зашифрованном тексте являются печатными. Это требование необходимо для корректного заполнения таблицы при дешифровании. \begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba1_2_2anotherCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba1\+\_\+2/another\+Cipher.\+h}}.\end{Desc}
+\mbox{\Hypertarget{anotherCipher_8cpp_a35e89cf9c5a495518b3ecb0ae5d4d801}\label{anotherCipher_8cpp_a35e89cf9c5a495518b3ecb0ae5d4d801}} 
+\index{anotherCipher.cpp@{anotherCipher.cpp}!getValidKey@{getValidKey}}
+\index{getValidKey@{getValidKey}!anotherCipher.cpp@{anotherCipher.cpp}}
+\doxysubsubsection{\texorpdfstring{getValidKey()}{getValidKey()}}
+{\footnotesize\ttfamily int get\+Valid\+Key (\begin{DoxyParamCaption}\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+Валидирует ключ (количество столбцов) 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em columns} & Количество столбцов для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидное количество столбцов 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если columns $<$= 0 или columns $>$ 100\\
+\hline
+\end{DoxyExceptions}
+Проверяет, что количество столбцов находится в допустимом диапазоне. Ограничение в 100 столбцов установлено для предотвращения создания слишком больших таблиц и возможных проблем с производительностью. \begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba1_2_2anotherCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba1\+\_\+2/another\+Cipher.\+h}}.\end{Desc}
+\mbox{\Hypertarget{anotherCipher_8cpp_aba2000de0659600e5553ee98080a34bd}\label{anotherCipher_8cpp_aba2000de0659600e5553ee98080a34bd}} 
+\index{anotherCipher.cpp@{anotherCipher.cpp}!getValidOpenText@{getValidOpenText}}
+\index{getValidOpenText@{getValidOpenText}!anotherCipher.cpp@{anotherCipher.cpp}}
+\doxysubsubsection{\texorpdfstring{getValidOpenText()}{getValidOpenText()}}
+{\footnotesize\ttfamily std\+::string get\+Valid\+Open\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Валидирует открытый текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em text} & Текст для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Валидный открытый текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст пустой или не содержит печатных символов\\
+\hline
+\end{DoxyExceptions}
+Алгоритм проверки\+:
+\begin{DoxyEnumerate}
+\item Проверка на пустоту текста
+\item Поиск хотя бы одного непробельного печатного символа
+\item Возврат исходного текста (без изменений)
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Функция не удаляет пробелы, так как они являются частью сообщения и влияют на структуру таблицы при шифровании. 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba1_2_2anotherCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba1\+\_\+2/another\+Cipher.\+h}}.\end{Desc}

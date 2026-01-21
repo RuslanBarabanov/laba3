@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: /home/stud/C++Projects/C++Projects/laba1_2/anotherCipher.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">/home/stud/C++Projects/C++Projects/laba1_2/anotherCipher.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>Класс исключения для ошибок шифрования Наследуется от std::invalid_argument, используется для обработки ошибок, специфичных для операций шифрования и дешифрования шифра перестановки по столбцам.</p>
+<div class="fragment"><div class="line"><span class="keywordflow">throw</span> <a name="_a0"></a><a class="code" href="classcipher__error.html">cipher_error</a>(<span class="stringliteral">&quot;Недопустимый символ в ключе&quot;</span>);</div>
+<div class="ttc" id="aclasscipher__error_html"><div class="ttname"><a href="classcipher__error.html">cipher_error</a></div><div class="ttdef"><b>Definition:</b> anotherCipher.h:41</div></div>
+</div><!-- fragment --><div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma once</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span><a class="code" href="classcipher__error.html">cipher_error</a> : <span class="keyword">public</span> std::invalid_argument {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">explicit</span> <a name="a1"></a><a class="code" href="classcipher__error.html#aac662e216a84bfeb873303c7b88d029e">cipher_error</a>(<span class="keyword">const</span> std::string&amp; what_arg) : </div>
+<div class="line">        std::invalid_argument(what_arg) {}</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">explicit</span> <a class="code" href="classcipher__error.html#aac662e216a84bfeb873303c7b88d029e">cipher_error</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg) : </div>
+<div class="line">        std::invalid_argument(what_arg) {}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">std::string <a name="a2"></a><a class="code" href="anotherCipher_8cpp.html#a6292b23bfd8ebd073fdf87a34d16fccc">encrypt</a>(<span class="keyword">const</span> std::string&amp; plaintext, <span class="keywordtype">int</span> columns);</div>
+<div class="line"> </div>
+<div class="line">std::string <a name="a3"></a><a class="code" href="anotherCipher_8cpp.html#a0ab0753064bd76c0dec16344659432ba">decrypt</a>(<span class="keyword">const</span> std::string&amp; ciphertext, <span class="keywordtype">int</span> columns);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Вспомогательные функции для валидации</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a name="a4"></a><a class="code" href="anotherCipher_8cpp.html#a35e89cf9c5a495518b3ecb0ae5d4d801">getValidKey</a>(<span class="keywordtype">int</span> columns);</div>
+<div class="line"> </div>
+<div class="line">std::string <a name="a5"></a><a class="code" href="anotherCipher_8cpp.html#aba2000de0659600e5553ee98080a34bd">getValidOpenText</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"> </div>
+<div class="line">std::string <a name="a6"></a><a class="code" href="anotherCipher_8cpp.html#abc72ec69fb24c1e2b0b212b050d98848">getValidCipherText</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="ttc" id="aanotherCipher_8cpp_html_a0ab0753064bd76c0dec16344659432ba"><div class="ttname"><a href="anotherCipher_8cpp.html#a0ab0753064bd76c0dec16344659432ba">decrypt</a></div><div class="ttdeci">std::string decrypt(const std::string &amp;ciphertext, int columns)</div><div class="ttdoc">Дешифрует текст, зашифрованный методом перестановки по столбцам</div><div class="ttdef"><b>Definition:</b> anotherCipher.cpp:175</div></div>
+<div class="ttc" id="aanotherCipher_8cpp_html_a35e89cf9c5a495518b3ecb0ae5d4d801"><div class="ttname"><a href="anotherCipher_8cpp.html#a35e89cf9c5a495518b3ecb0ae5d4d801">getValidKey</a></div><div class="ttdeci">int getValidKey(int columns)</div><div class="ttdoc">Валидирует ключ (количество столбцов)</div><div class="ttdef"><b>Definition:</b> anotherCipher.cpp:29</div></div>
+<div class="ttc" id="aanotherCipher_8cpp_html_a6292b23bfd8ebd073fdf87a34d16fccc"><div class="ttname"><a href="anotherCipher_8cpp.html#a6292b23bfd8ebd073fdf87a34d16fccc">encrypt</a></div><div class="ttdeci">std::string encrypt(const std::string &amp;plaintext, int columns)</div><div class="ttdoc">Шифрует текст методом перестановки по столбцам</div><div class="ttdef"><b>Definition:</b> anotherCipher.cpp:123</div></div>
+<div class="ttc" id="aanotherCipher_8cpp_html_aba2000de0659600e5553ee98080a34bd"><div class="ttname"><a href="anotherCipher_8cpp.html#aba2000de0659600e5553ee98080a34bd">getValidOpenText</a></div><div class="ttdeci">std::string getValidOpenText(const std::string &amp;text)</div><div class="ttdoc">Валидирует открытый текст</div><div class="ttdef"><b>Definition:</b> anotherCipher.cpp:53</div></div>
+<div class="ttc" id="aanotherCipher_8cpp_html_abc72ec69fb24c1e2b0b212b050d98848"><div class="ttname"><a href="anotherCipher_8cpp.html#abc72ec69fb24c1e2b0b212b050d98848">getValidCipherText</a></div><div class="ttdeci">std::string getValidCipherText(const std::string &amp;text)</div><div class="ttdoc">Валидирует зашифрованный текст</div><div class="ttdef"><b>Definition:</b> anotherCipher.cpp:83</div></div>
+<div class="ttc" id="aclasscipher__error_html_aac662e216a84bfeb873303c7b88d029e"><div class="ttname"><a href="classcipher__error.html#aac662e216a84bfeb873303c7b88d029e">cipher_error::cipher_error</a></div><div class="ttdeci">cipher_error(const std::string &amp;what_arg)</div><div class="ttdoc">Конструктор с std::string.</div><div class="ttdef"><b>Definition:</b> anotherCipher.h:47</div></div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
