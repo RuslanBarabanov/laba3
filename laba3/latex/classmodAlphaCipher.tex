@@ -1,0 +1,208 @@
+\hypertarget{classmodAlphaCipher}{}\doxysection{Класс mod\+Alpha\+Cipher}
+\label{classmodAlphaCipher}\index{modAlphaCipher@{modAlphaCipher}}
+
+
+Класс для шифрования методом Гронсфельда  
+
+
+
+
+{\ttfamily \#include $<$mod\+Alpha\+Cipher.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodAlphaCipher_a4f0a86c20f5d836f66cb1e640d875e6b}{mod\+Alpha\+Cipher}} ()=delete
+\begin{DoxyCompactList}\small\item\em Удаленный конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodAlphaCipher_a314fca132f4e74faca280b7c1fad7cb5}{mod\+Alpha\+Cipher}} (const std\+::wstring \&skey)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметром ключа \end{DoxyCompactList}\item 
+std\+::wstring \mbox{\hyperlink{classmodAlphaCipher_a5edc499881373a275a3cd14f0cab6c19}{encrypt}} (const std\+::wstring \&open\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Шифрует открытый текст \end{DoxyCompactList}\item 
+std\+::wstring \mbox{\hyperlink{classmodAlphaCipher_a941eab79d9ec1a8de4e1f9cf2a80ff35}{decrypt}} (const std\+::wstring \&cipher\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Дешифрует зашифрованный текст \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для шифрования методом Гронсфельда 
+
+Реализует модифицированную версию шифра Гронсфельда для работы с русским алфавитом. Поддерживает операции шифрования и дешифрования с полной валидацией входных данных.
+
+\begin{DoxyWarning}{Предупреждения}
+Класс не имеет конструктора по умолчанию. Требуется указать ключ.
+\end{DoxyWarning}
+\begin{DoxyNote}{Заметки}
+Алфавит\+: \char`\"{}АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\char`\"{} 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba3_2modAlphaCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba3/mod\+Alpha\+Cipher.\+h}}.\end{Desc}
+
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classmodAlphaCipher_a4f0a86c20f5d836f66cb1e640d875e6b}\label{classmodAlphaCipher_a4f0a86c20f5d836f66cb1e640d875e6b}} 
+\index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
+\index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
+\doxysubsubsection{\texorpdfstring{modAlphaCipher()}{modAlphaCipher()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mod\+Alpha\+Cipher\+::mod\+Alpha\+Cipher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Удаленный конструктор по умолчанию 
+
+Класс требует указания ключа для работы. \begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba3_2modAlphaCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba3/mod\+Alpha\+Cipher.\+h}}.\end{Desc}
+\mbox{\Hypertarget{classmodAlphaCipher_a314fca132f4e74faca280b7c1fad7cb5}\label{classmodAlphaCipher_a314fca132f4e74faca280b7c1fad7cb5}} 
+\index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
+\index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
+\doxysubsubsection{\texorpdfstring{modAlphaCipher()}{modAlphaCipher()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mod\+Alpha\+Cipher\+::mod\+Alpha\+Cipher (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{skey }\end{DoxyParamCaption})}
+
+
+
+Конструктор с параметром ключа 
+
+Конструктор класса \mbox{\hyperlink{classmodAlphaCipher}{mod\+Alpha\+Cipher}}.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em skey} & Ключ шифрования \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если ключ невалиден\\
+\hline
+\end{DoxyExceptions}
+Инициализирует алфавитную карту и валидирует ключ.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em skey} & Ключ шифрования \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если ключ невалиден\\
+\hline
+\end{DoxyExceptions}
+Инициализирует объект шифра\+:
+\begin{DoxyEnumerate}
+\item Создает карту соответствия символов алфавита их индексам
+\item Валидирует ключ с помощью get\+Valid\+Key()
+\item Преобразует ключ в числовую форму с помощью convert() 
+\end{DoxyEnumerate}
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classmodAlphaCipher_a941eab79d9ec1a8de4e1f9cf2a80ff35}\label{classmodAlphaCipher_a941eab79d9ec1a8de4e1f9cf2a80ff35}} 
+\index{modAlphaCipher@{modAlphaCipher}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!modAlphaCipher@{modAlphaCipher}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily std\+::wstring mod\+Alpha\+Cipher\+::decrypt (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{cipher\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Дешифрует зашифрованный текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cipher\+\_\+text} & Текст для дешифрования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Расшифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст невалиден или произошла ошибка при дешифровании\\
+\hline
+\end{DoxyExceptions}
+Алгоритм дешифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация зашифрованного текста
+\item Преобразование символов в числовые индексы
+\item Применение ключа по формуле\+: (символ + алфавит -\/ ключ) mod размер\+\_\+алфавита
+\item Преобразование обратно в строку
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cipher\+\_\+text} & Текст для дешифрования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Расшифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст невалиден или произошла ошибка при дешифровании\\
+\hline
+\end{DoxyExceptions}
+Алгоритм дешифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация зашифрованного текста
+\item Преобразование символов в числовые индексы
+\item Циклическое применение ключа\+: (символ + алфавит -\/ ключ) mod размер\+\_\+алфавита
+\item Обратное преобразование в строку 
+\end{DoxyEnumerate}\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba3_2modAlphaCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba3/mod\+Alpha\+Cipher.\+h}}.\end{Desc}
+\mbox{\Hypertarget{classmodAlphaCipher_a5edc499881373a275a3cd14f0cab6c19}\label{classmodAlphaCipher_a5edc499881373a275a3cd14f0cab6c19}} 
+\index{modAlphaCipher@{modAlphaCipher}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!modAlphaCipher@{modAlphaCipher}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily std\+::wstring mod\+Alpha\+Cipher\+::encrypt (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{open\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Шифрует открытый текст 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em open\+\_\+text} & Текст для шифрования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст невалиден или произошла ошибка при шифровании\\
+\hline
+\end{DoxyExceptions}
+Алгоритм шифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация и очистка входного текста
+\item Преобразование символов в числовые индексы
+\item Применение ключа по формуле\+: (символ + ключ) mod размер\+\_\+алфавита
+\item Преобразование обратно в строку
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em open\+\_\+text} & Текст для шифрования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Зашифрованный текст 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classcipher__error}{cipher\+\_\+error}}} & Если текст невалиден или произошла ошибка при шифровании\\
+\hline
+\end{DoxyExceptions}
+Алгоритм шифрования\+:
+\begin{DoxyEnumerate}
+\item Валидация и очистка текста
+\item Преобразование символов в числовые индексы
+\item Циклическое применение ключа\+: (символ + ключ) mod размер\+\_\+алфавита
+\item Обратное преобразование в строку 
+\end{DoxyEnumerate}\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2stud_2C_09_09Projects_2C_09_09Projects_2laba3_2modAlphaCipher_8h-example}{/home/stud/\+C++\+Projects/\+C++\+Projects/laba3/mod\+Alpha\+Cipher.\+h}}.\end{Desc}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+mod\+Alpha\+Cipher.\+h\item 
+\mbox{\hyperlink{modAlphaCipher_8cpp}{mod\+Alpha\+Cipher.\+cpp}}\end{DoxyCompactItemize}
